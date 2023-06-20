@@ -1,1 +1,13 @@
-<p>input works!</p>
+<div class="field">
+  <label class="label">{{label}}</label>
+  <input [formControl]="control" class="input" [type]="type" >
+  <div  *ngIf="showErrors()" class="ui red basic pointing label">
+    <p *ngIf="control.errors?.['required']">{{label}} is required</p>
+    <p *ngIf="control.errors?.['minlength']">Minimum length is {{control.errors?.['minlength'].requiredLength}}</p>
+    <p *ngIf="control.errors?.['maxlength']">Maximum length is {{control.errors?.['maxlength'].requiredLength}}</p>
+    <p *ngIf="control.errors?.['pattern']">Only a-z, A-Z, 0-9, and _ are allowed</p>
+    <p *ngIf="control.errors?.['noUsernameUnique']">Username is taken</p>
+    <p *ngIf="control.errors?.['noConnexion']">Can't Tell if Username is taken</p>
+    <p *ngIf="control.errors?.['passwordsDontMatch']">Passwords don't matc</p>
+  </div>
+</div>
