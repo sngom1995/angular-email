@@ -1,8 +1,8 @@
 <h3>Create an Account</h3>
-<form class="ui form" [formGroup]="authForm">
+<form class="ui form" [formGroup]="authForm" (submit)="onSubmit()">
   <app-input label="Username" [control]="authForm.controls.username"  ></app-input>
   <app-input label="Password" [control]="authForm.controls.password" type="password" ></app-input>
   <app-input label="Confirm Password" [control]="authForm.controls.passwordConfirmation" type="password" ></app-input>
-  <button class="ui submit button primary" type="">Submit</button>
+  <button class="ui submit button primary" type="submit">Submit</button>
   {{authForm.errors | json}}
 </form>
