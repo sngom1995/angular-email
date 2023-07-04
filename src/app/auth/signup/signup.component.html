@@ -3,6 +3,11 @@
   <app-input label="Username" [control]="authForm.controls.username"  ></app-input>
   <app-input label="Password" [control]="authForm.controls.password" type="password" ></app-input>
   <app-input label="Confirm Password" [control]="authForm.controls.passwordConfirmation" type="password" ></app-input>
+
+  <div
+    *ngIf="authForm.controls.passwordConfirmation.errors?.['passwordsDontMatch']"
+    class="ui red basic label">
+    <p *ngIf="authForm.errors?.['passwordsDontMatch']">Passwords don't match</p>
+  </div>
   <button class="ui submit button primary" type="">Submit</button>
-  {{authForm.errors | json}}
 </form>
